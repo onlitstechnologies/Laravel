@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SupplierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,11 +16,3 @@ use App\Http\Controllers\SupplierController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/supplier', [SupplierController::class, 'index']);
-//Route::get('/supplier_save',[SupplierController::class, 'store']);
-Route::get('/register_supplier', function() {
-    return view('register_supplier');
-});
-
-Route::post('register_suppliers', [SupplierController::class, 'store']);
