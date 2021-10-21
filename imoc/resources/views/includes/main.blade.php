@@ -3,7 +3,7 @@
     <svg class="bi me-2" width="30" height="24">
       <use xlink:href="#bootstrap" />
     </svg>
-    <span class="fs-5 fw-semibold">iMOC</span>
+    <img src="images/iMOC.png" alt="" width="118" height="40">
   </a>
   <ul class="list-unstyled ps-0">
     <li class="mb-1">
