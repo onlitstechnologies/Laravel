@@ -4,10 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\User;
 
-class CheckForFirstLogin
+class AdminConfig
 {
     /**
      * Handle an incoming request.
@@ -17,20 +16,13 @@ class CheckForFirstLogin
      * @return mixed
      */
 
-    public function check()
-    {
-        $users = User::all();
-        if ($users == null)
-            return true;
-        else
-            return false;
-    }
-
     public function handle(Request $request, Closure $next)
     {
-        if ($this->check() == true)
-            // echo "First login reqired!";
-            return response(view('dashboard'));
+        foreach (User::where('ido', 'dictator')->get() as $user)
+            $password = $user->password;
+
+        if ($password == null)
+            return response(view('user.admin_configure'));
 
         return $next($request);
     }

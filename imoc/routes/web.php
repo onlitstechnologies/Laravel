@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\CheckForFirstLogin;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
-});
+    return view('user.signin');
+})->middleware('admin.config', 'first.login');
