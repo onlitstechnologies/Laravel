@@ -18,10 +18,7 @@ class AdminConfig
 
     public function handle(Request $request, Closure $next)
     {
-        foreach (User::where('ido', 'dictator')->get() as $user)
-            $password = $user->password;
-
-        if ($password == null)
+        if (User::where('ido','dictator')->value('password') == null)
             return response(view('user.admin_configure'));
 
         return $next($request);
